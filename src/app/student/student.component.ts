@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Wilders } from '../models/wilders';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -8,31 +8,14 @@ import { Wilders } from '../models/wilders';
 })
 export class StudentComponent implements OnInit {
 
-  wilders: Wilders[] = [
-    {
-      id: 1,
-      firstname: 'Maria',
-      lastname: 'Serrano',
-      school: 'WCS Lyon'
-    },
-    {
-      id: 2,
-      firstname: 'Simon',
-      lastname: 'Gustav',
-      school: 'WCS Lyon'
-    },
-    {
-      id: 3,
-      firstname: 'Franck',
-      lastname: 'Turpin',
-      school: 'WCS Paris'
-    },
+  studentName: string | null = null;
 
-  ];
-
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.studentName = params.get('studentName');
+    });
   }
 
 }

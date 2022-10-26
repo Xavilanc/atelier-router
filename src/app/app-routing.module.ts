@@ -6,8 +6,8 @@ import { StudentComponent } from './student/student.component';
 
 const routes: Routes = [
   { path: "", component: SearchComponent},
-  { path: "wcs/:student", component: StudentComponent},
-  { path: "**", component: SearchComponent},
+  { path: "wcs/:studentName", component: StudentComponent},
+  { path: "**", redirectTo: '/', pathMatch: "full"},
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { StudentComponent } from './student/student.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
